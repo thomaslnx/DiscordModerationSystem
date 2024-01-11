@@ -90,6 +90,8 @@ export const staffUserInputCommand = async (client: Client, interaction: ChatInp
       try {
         await interaction.guild?.bans.remove(userToBeUnbanned!, unbanReason!)
         interaction.reply(`${userToBeUnbanned} has been unbanned :partying_face:`)
+        .catch(err => (console.log('err trying send unban message')))
+        return
       } catch (err) {
         interaction.reply('This user cannot be unban!')
         return
